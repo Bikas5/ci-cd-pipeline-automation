@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: multi-tenant-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: multi-tenant-app
+  template:
+    metadata:
+      labels:
+        app: multi-tenant-app
+    spec:
+      containers:
+      - name: multi-tenant-app
+        image: your-username/multi-tenant-app:latest
+        ports:
+        - containerPort: 5000
